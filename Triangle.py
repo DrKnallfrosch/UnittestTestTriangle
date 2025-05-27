@@ -40,6 +40,8 @@ class Triangle:
         Raises:
             TriangleException: If any side is non-positive or if the sides do not form a valid triangle.
         """
+        if not (isinstance(a, (int, float)) and isinstance(b, (int, float)) and isinstance(c, (int, float))):
+            raise TriangleException(TypeError("Wrong type of parameters. Expected int or float."))
         if a <= 0 or b <= 0 or c <= 0:
             raise TriangleException("Sides must be positive numbers.")
         if a + b <= c or a + c <= b or b + c <= a:
@@ -124,7 +126,7 @@ class Triangle:
 if __name__ == "__main__":
     # Example usage
     try:
-        triangle = Triangle(3, 3, 5)
+        triangle = Triangle(5, 5, 5)
         print(triangle)
         triangle.show()
         print("Is the triangle isosceles?", triangle.isIsosceles())
